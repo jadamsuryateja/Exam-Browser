@@ -190,7 +190,7 @@ const ResultsManager = () => {
         throw new Error('No authentication token found');
       }
 
-      const response = await axios.get('http://192.168.29.44:5000/api/admin/results', {
+      const response = await axios.get('http://localhost:5000/api/admin/results', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -222,7 +222,7 @@ const ResultsManager = () => {
         throw new Error('No authentication token found');
       }
 
-      const response = await axios.get('http://192.168.29.44:5000/api/admin/exam-configs', {
+      const response = await axios.get('http://localhost:5000/api/admin/exam-configs', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

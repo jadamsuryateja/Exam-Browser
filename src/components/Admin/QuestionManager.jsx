@@ -60,7 +60,7 @@ const QuestionManager = () => {
 
   const fetchExamConfigs = async () => {
     try {
-      const response = await axios.get('http://192.168.29.44:5000/api/admin/exam-configs');
+      const response = await axios.get('http://localhost:5000/api/admin/exam-configs');
       setExamConfigs(response.data);
     } catch (error) {
       console.error('Error fetching exam configs:', error);
@@ -70,7 +70,7 @@ const QuestionManager = () => {
   const fetchQuestions = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.29.44:5000/api/admin/questions/${selectedConfig.branch}/${selectedConfig.year}/${selectedConfig.semester}/${selectedConfig.subject}`
+        `http://localhost:5000/api/admin/questions/${selectedConfig.branch}/${selectedConfig.year}/${selectedConfig.semester}/${selectedConfig.subject}`
       );
       setQuestions(response.data);
     } catch (error) {
@@ -85,7 +85,7 @@ const QuestionManager = () => {
     try {
       console.log('Submitting exam config:', examConfig); // Debug log
     
-      const response = await axios.post('http://192.168.29.44:5000/api/admin/exam-config', examConfig);
+      const response = await axios.post('http://localhost:5000/api/admin/exam-config', examConfig);
       console.log('Server response:', response.data); // Debug log
     
       setMessage('Exam configuration saved successfully!');
@@ -112,10 +112,10 @@ const QuestionManager = () => {
       };
 
       if (editingQuestion) {
-        await axios.put(`http://192.168.29.44:5000/api/admin/questions/${editingQuestion._id}`, questionData);
+        await axios.put(`http://localhost:5000/api/admin/questions/${editingQuestion._id}`, questionData);
         setMessage('Question updated successfully!');
       } else {
-        await axios.post('http://192.168.29.44:5000/api/admin/questions', questionData);
+        await axios.post('http://localhost:5000/api/admin/questions', questionData);
         setMessage('Question added successfully!');
       }
 
@@ -151,7 +151,7 @@ const QuestionManager = () => {
   const handleDeleteQuestion = async (questionId) => {
     if (window.confirm('Are you sure you want to delete this question?')) {
       try {
-        await axios.delete(`http://192.168.29.44:5000/api/admin/questions/${questionId}`);
+        await axios.delete(`http://localhost:5000/api/admin/questions/${questionId}`);
         setMessage('Question deleted successfully!');
         fetchQuestions();
       } catch (error) {
@@ -176,7 +176,7 @@ const QuestionManager = () => {
       setLoading(true);
       setMessage('');
       
-      const response = await axios.delete(`http://192.168.29.44:5000/api/admin/exam-config/${configId}`);
+      const response = await axios.delete(`http://localhost:5000/api/admin/exam-config/${configId}`);
       
       if (response.data.success) {
         setMessage('Exam configuration deleted successfully');
@@ -203,7 +203,7 @@ const QuestionManager = () => {
     formData.append('image', file);
 
     try {
-      const response = await axios.post('http://192.168.29.44:5000/api/admin/upload-image', formData, {
+      const response = await axios.post('http://localhost:5000/api/admin/upload-image', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
@@ -235,7 +235,7 @@ const QuestionManager = () => {
     formData.append('section', 'Uploaded'); // Default section for uploaded questions
 
     try {
-      const response = await axios.post('http://192.168.29.44:5000/api/admin/upload-docx', formData, {
+      const response = await axios.post('http://localhost:5000/api/admin/upload-docx', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
@@ -639,7 +639,7 @@ const QuestionManager = () => {
                         {newQuestion.questionImage && (
                           <div className="mt-2">
                             <img
-                              src={`http://192.168.29.44:5000${newQuestion.questionImage}`}
+                              src={`http://localhost:5000${newQuestion.questionImage}`}
                               alt="Question"
                               className="max-w-xs max-h-32 object-contain border rounded"
                             />
@@ -730,7 +730,7 @@ const QuestionManager = () => {
                           </h4>
                           {question.questionImage && (
                             <img
-                              src={`http://192.168.29.44:5000${question.questionImage}`}
+                              src={`http://localhost:5000${question.questionImage}`}
                               alt="Question"
                               className="max-w-xs max-h-24 object-contain mt-2 border rounded"
                             />

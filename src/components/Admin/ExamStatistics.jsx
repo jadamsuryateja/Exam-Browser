@@ -80,7 +80,7 @@ const ExamStatistics = () => {
     const fetchFilterOptions = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://192.168.29.44:5000/api/admin/filter-options', {
+        const response = await axios.get('http://localhost:5000/api/admin/filter-options', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -112,7 +112,7 @@ const ExamStatistics = () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          `http://192.168.29.44:5000/api/admin/student-suggestions?query=${query}`,
+          `http://localhost:5000/api/admin/student-suggestions?query=${query}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -138,7 +138,7 @@ const ExamStatistics = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://192.168.29.44:5000/api/admin/filtered-results?rollNumber=${student.rollNumber}`,
+        `http://localhost:5000/api/admin/filtered-results?rollNumber=${student.rollNumber}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -213,7 +213,7 @@ const ExamStatistics = () => {
       });
 
       const response = await axios.get(
-        `http://192.168.29.44:5000/api/admin/filtered-results?${params}`,
+        `http://localhost:5000/api/admin/filtered-results?${params}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`

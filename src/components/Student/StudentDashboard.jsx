@@ -29,7 +29,7 @@ const StudentDashboard = () => {
       try {
         // First fetch completed exams
         const completedResponse = await axios.get(
-          `http://192.168.29.44:5000/api/student/completed-exams`,
+          `http://localhost:5000/api/student/completed-exams`,
           {
             params: {
               rollNumber: user.rollNumber
@@ -45,7 +45,7 @@ const StudentDashboard = () => {
 
         // Then fetch available exams
         const availableResponse = await axios.get(
-          'http://192.168.29.44:5000/api/student/available-exams',
+          'http://localhost:5000/api/student/available-exams',
           {
             params: { 
               branch: user.branch,

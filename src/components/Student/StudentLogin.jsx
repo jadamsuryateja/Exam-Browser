@@ -30,7 +30,7 @@ const StudentLogin = () => {
         setError('');
         
         console.log('Fetching filters...');
-        const response = await axios.get('http://192.168.29.44:5000/api/exams/filters');
+        const response = await axios.get('http://localhost:5000/api/exams/filters');
         console.log('Filters response:', response.data);
 
         if (!response.data) {

@@ -210,7 +210,7 @@ const ExamInterface = () => {
 
       // If no saved state, fetch from API
       const response = await axios.get(
-        `http://192.168.29.44:5000/api/student/exam/${branch}/${year}/${semester}/${subject}`
+        `http://localhost:5000/api/student/exam/${branch}/${year}/${semester}/${subject}`
       );
 
       const { questions, sections, examConfig } = response.data;
@@ -322,7 +322,7 @@ const ExamInterface = () => {
       };
 
       const response = await axios.post(
-        'http://192.168.29.44:5000/api/student/submit-exam', 
+        'http://localhost:5000/api/student/submit-exam', 
         payload
       );
 
@@ -601,7 +601,7 @@ const ExamInterface = () => {
               {currentQuestion.questionImage && (
                 <div className="my-3 sm:my-4">
                   <img
-                    src={`http://192.168.29.44:5000${currentQuestion.questionImage}`}
+                    src={`http://localhost:5000${currentQuestion.questionImage}`}
                     alt="Question"
                     className="max-w-full h-auto rounded-lg shadow-md"
                     onError={(e) => {

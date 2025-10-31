@@ -44,7 +44,7 @@ const StudentRegister = () => {
 
     try {
       // First check if roll number exists
-      const checkResponse = await fetch(`http://192.168.29.44:5000/api/student/check-rollnumber/${formData.rollNumber.trim().toUpperCase()}`);
+      const checkResponse = await fetch(`http://localhost:5000/api/student/check-rollnumber/${formData.rollNumber.trim().toUpperCase()}`);
       const checkData = await checkResponse.json();
 
       if (checkData.exists) {
@@ -54,7 +54,7 @@ const StudentRegister = () => {
       }
 
       // If roll number doesn't exist, proceed with registration
-      const response = await fetch('http://192.168.29.44:5000/api/student/register', {
+      const response = await fetch('http://localhost:5000/api/student/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

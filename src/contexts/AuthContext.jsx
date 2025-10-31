@@ -38,8 +38,8 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials, role, filters = null) => {
     try {
       const endpoint = role === 'admin' 
-        ? 'http://192.168.29.44:5000/api/admin/login'
-        : 'http://192.168.29.44:5000/api/student/login';
+        ? 'http://localhost:5000/api/admin/login'
+        : 'http://localhost:5000/api/student/login';
 
       const response = await axios.post(endpoint, {
         ...credentials,
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      await axios.post('http://192.168.29.44:5000/api/student/register', userData);
+      await axios.post('http://localhost:5000/api/student/register', userData);
       return { success: true, message: 'Registration successful' };
     } catch (error) {
       return { 

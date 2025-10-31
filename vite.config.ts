@@ -8,16 +8,16 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    host: '192.168.29.44',
+    host: 'localhost',
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://192.168.29.44:5000',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
       },
       '/socket.io': {
-        target: 'http://192.168.29.44:5000',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
         ws: true,

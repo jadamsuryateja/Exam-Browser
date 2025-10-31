@@ -46,7 +46,7 @@ const ExamReattemptManager = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        'http://192.168.29.44:5000/api/admin/exam-attempts',
+        'http://localhost:5000/api/admin/exam-attempts',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: filters
@@ -70,7 +70,7 @@ const ExamReattemptManager = () => {
     const fetchInitialData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://192.168.29.44:5000/api/admin/filter-options', {
+        const response = await axios.get('http://localhost:5000/api/admin/filter-options', {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -112,7 +112,7 @@ const ExamReattemptManager = () => {
   const fetchFilterOptions = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://192.168.29.44:5000/api/admin/filter-options', {
+      const response = await axios.get('http://localhost:5000/api/admin/filter-options', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setFilterOptions(prev => ({
@@ -130,7 +130,7 @@ const ExamReattemptManager = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://192.168.29.44:5000/api/admin/sections-subjects?branch=${filters.branch}&year=${filters.year}&semester=${filters.semester}`,
+        `http://localhost:5000/api/admin/sections-subjects?branch=${filters.branch}&year=${filters.year}&semester=${filters.semester}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -157,7 +157,7 @@ const ExamReattemptManager = () => {
   //   try {
   //     const token = localStorage.getItem('token');
   //     const response = await axios.get(
-  //       'http://192.168.29.44:5000/api/admin/exam-attempts',
+  //       'http://localhost:5000/api/admin/exam-attempts',
   //       {
   //         headers: { Authorization: `Bearer ${token}` },
   //         params: filters
@@ -367,7 +367,7 @@ const ExamReattemptManager = () => {
       setSubmitting(true);
       const token = localStorage.getItem('token');
       
-      await axios.delete(`http://192.168.29.44:5000/api/admin/exam-result/${resultId}`, {
+      await axios.delete(`http://localhost:5000/api/admin/exam-result/${resultId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -419,7 +419,7 @@ const ExamReattemptManager = () => {
       // Delete results for all selected students
       await Promise.all(
         selectedStudents.map(id => 
-          axios.delete(`http://192.168.29.44:5000/api/admin/exam-result/${id}`, {
+          axios.delete(`http://localhost:5000/api/admin/exam-result/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           })
         )

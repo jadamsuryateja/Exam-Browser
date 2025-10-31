@@ -15,7 +15,7 @@ class SocketService {
   connect() {
     if (!this.socket) {
       const token = localStorage.getItem('token');
-      this.socket = io('http://192.168.29.44:5000', {
+      this.socket = io('http://localhost:5000', {
         auth: { token },
         transports: ['websocket'],
         reconnection: true,

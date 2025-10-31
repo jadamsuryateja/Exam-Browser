@@ -16,7 +16,7 @@ const StudentResults = () => {
         const token = localStorage.getItem('token');
         
         const response = await axios.get(
-          'http://192.168.29.44:5000/api/student/results',
+          'http://localhost:5000/api/student/results',
           {
             headers: {
               'Authorization': `Bearer ${token}`
